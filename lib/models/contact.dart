@@ -6,12 +6,16 @@ class Contact implements StorableModel {
   String name;
   int accountNumber;
 
-  final String tblName = 'contact';
-  final String colId = 'id';
-  final String colName = 'name';
-  final String colAccountNumber = 'account_number';
+  static final String tblName = 'contact';
+  static final String colId = 'id';
+  static final String colName = 'name';
+  static final String colAccountNumber = 'account_number';
 
-  Contact(this.name, this.accountNumber, {this.id});
+  Contact({this.name, this.accountNumber, this.id, source}) {
+    if (source != null) {
+      fromMap(source);
+    }
+  }
 
   @override
   String toString() {
@@ -21,9 +25,7 @@ class Contact implements StorableModel {
   @override
   MapModel toMap() {
     MapModel map = MapModel();
-    if (this.id != null) {
-      map[colId] = this.id;
-    }
+    map[colId] = this.id;
     map[colName] = this.name;
     map[colAccountNumber] = this.accountNumber;
     return map;

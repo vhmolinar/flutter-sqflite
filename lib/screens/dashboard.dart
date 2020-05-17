@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sqflite/screens/contacts_list.dart';
 
+final String _lblTitle = 'Dashboard';
+final String _imgDash = 'images/money.jpg';
+final String _lblBtnContacts = 'Contacts';
+
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Text(_lblTitle),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -14,7 +18,7 @@ class Dashboard extends StatelessWidget {
         children: <Widget>[
           Padding(
             padding: EdgeInsets.all(8.0),
-            child: Image.asset('images/money.jpg'),
+            child: Image.asset(_imgDash),
           ),
           Padding(
             padding: EdgeInsets.all(8.0),
@@ -39,7 +43,7 @@ class Dashboard extends StatelessWidget {
                         size: 24,
                       ),
                       Text(
-                        'Contacts',
+                        _lblBtnContacts,
                         style: TextStyle(
                           fontSize: 16,
                         ),
